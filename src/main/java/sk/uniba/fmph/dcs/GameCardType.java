@@ -1,26 +1,26 @@
 package sk.uniba.fmph.dcs;
 
 public class GameCardType {
-    int plusActions;
-    int plusBuys;
-    int plusCards;
-    int plusCoins;
-    int points;
-    int cost;
-    boolean isAction;
-    String name;
-    String description;
+    private final int plusActions;
+    private final int plusBuys;
+    private final int plusCards;
+    private final int plusCoins;
+    private final int points;
+    private final int cost;
+    private final boolean isAction;
+    private final String name;
+    private final String description;
     
-    public GameCardType(int pa, int pb, int pca, int pco, int p, int c, boolean isA, String n, String d) {
-        plusActions = pa;
-        plusBuys = pb;
-        plusCards = pca;
-        plusCoins = pco;
-        points = p;
-        cost = c;
-        isAction = isA;
-        name = n;
-        description = d;
+    public GameCardType(int plusActions, int plusBuys, int plusCards, int plusCoins, int points, int cost, boolean isAction, String name, String description) {
+        this.plusActions = plusActions;
+        this.plusBuys = plusBuys;
+        this.plusCards = plusCards;
+        this.plusCoins = plusCoins;
+        this.points = points;
+        this.cost = cost;
+        this.isAction = isAction;
+        this.name = name;
+        this.description = description;
     }
     
     public int getPlusActions() {return plusActions;}
@@ -28,7 +28,8 @@ public class GameCardType {
     public int getPlusCards() {return plusCards;}
     public int getPlusCoins() {return plusCoins;}
     public int getPoints() {return points;}
-    public int isAction() {return isAction();}
+    public int getCost() {return cost;}
+    public boolean isAction() {return isAction;}
     public String getName() {return name;}
     public String getDescription() {return description;}
     
@@ -39,7 +40,6 @@ public class GameCardType {
     public static final GameCardType GAME_CARD_TYPE_VILLAGE = new GameCardType(2, 0, 1, 0, 0, 3, true, "Village", "+2 Actions; +1 Card");
     public static final GameCardType GAME_CARD_TYPE_FESTIVAL = new GameCardType(2, 1, 0, 2, 0, 5, true, "Festival", "+2 Actions; +1 Buy; +2 Coins");
     public static final GameCardType GAME_CARD_TYPE_LABORATORY = new GameCardType(1, 0, 2, 0, 0, 5, true, "Laboratory", "+1 Action; +2 Cards");
-
 }
 
 

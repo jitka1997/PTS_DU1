@@ -8,8 +8,8 @@ import java.util.Collections;
 public class DiscardPile {
     List<CardInterface> cards;
 
-    public DiscardPile(List<CardInterface> _cards) {
-        cards = _cards;
+    public DiscardPile(List<CardInterface> cards) {
+        this.cards = cards;
     }
         
     public Optional<CardInterface> getTopCard() {
@@ -17,8 +17,8 @@ public class DiscardPile {
         return Optional.of(cards.get(cards.size()-1));
     }
         
-    public void addCards(List<CardInterface> _cards) {
-        cards.addAll(_cards);
+    public void addCards(List<CardInterface> cards) {
+        this.cards.addAll(cards);
     }
         
     public int getSize() {
@@ -28,7 +28,7 @@ public class DiscardPile {
     public List<CardInterface> shuffle() {
         Collections.shuffle(cards);
         List<CardInterface> cards_to_send = cards;        
-        cards = new ArrayList<CardInterface>();
+        cards = new ArrayList<>();
         return cards_to_send;
     }
 }
