@@ -25,8 +25,14 @@ public class Hand {
             return Optional.empty();
         }
 
-        cards.addAll(deck.draw(numberOfCardsToDraw));
+        try {
+            cards.addAll(deck.draw(numberOfCardsToDraw));
+        } catch (IllegalArgumentException e){
+            System.err.println(e.getMessage());
+            return Optional.empty();
+        }
         if (playedCard != null) {
+            cards.remove(id);
             return Optional.of(playedCard);
         }
         return Optional.empty();

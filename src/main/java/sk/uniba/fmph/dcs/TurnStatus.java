@@ -5,6 +5,12 @@ public class TurnStatus {
     private int buys;
     private int coins;
 
+    public TurnStatus(){
+        actions = 0;
+        buys = 0;
+        coins = 0;
+    }
+
     public int getActions() {
         return actions;
     }

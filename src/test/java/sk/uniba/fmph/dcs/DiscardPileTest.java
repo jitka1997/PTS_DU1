@@ -7,24 +7,6 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-
-class FakeCard implements CardInterface {
-    private final GameCardType cardType;
-    
-    FakeCard(GameCardType cardType) {
-        this.cardType = cardType;
-    }
-    
-    public Integer evaluate(TurnStatus t) {
-        return null;
-    }
-
-    public GameCardType getGameCardType() {
-    	return cardType;
-    }
-}
-
-
 public class DiscardPileTest  {
     private DiscardPile pile1;
     private DiscardPile pile2;
