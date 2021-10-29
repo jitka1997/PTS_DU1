@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class DiscardPileTest  {
+public class DiscardPileTest {
     private DiscardPile pile1;
     private DiscardPile pile2;
 
@@ -15,8 +16,8 @@ public class DiscardPileTest  {
         assertTrue(pile.getTopCard().isPresent());
         assertEquals(pile.getTopCard().get().getGameCardType().getName(), string);
     }
-        
-    private void assertTopIsNone(DiscardPile  pile) {
+
+    private void assertTopIsNone(DiscardPile pile) {
         assertTrue(pile.getTopCard().isEmpty());
     }
 
@@ -27,17 +28,17 @@ public class DiscardPileTest  {
         }});
         pile2 = new DiscardPile(new ArrayList<>());
     }
-    
+
     @Test
     public void test_get_top_card() {
-    	setUp();
+        setUp();
         assertTopIs(pile1, "Copper");
         assertTopIsNone(pile2);
     }
-        
+
     @Test
     public void test_add_cards_and_get_size() {
-    	setUp();
+        setUp();
         assertEquals(pile2.getSize(), 0);
         pile2.addCards(new ArrayList<>() {{
             add(new FakeCard(GameCardType.GAME_CARD_TYPE_ESTATE));
@@ -50,5 +51,5 @@ public class DiscardPileTest  {
         assertEquals(pile2.getSize(), 2);
         assertTopIs(pile2, "Copper");
     }
- }
+}
         

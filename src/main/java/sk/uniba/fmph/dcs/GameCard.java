@@ -2,10 +2,10 @@ package sk.uniba.fmph.dcs;
 
 import java.util.Map;
 
-public class GameCard implements CardInterface{
+public class GameCard implements CardInterface {
     private final GameCardType gameCardType;
 
-    public GameCard(GameCardType gameCardType){
+    public GameCard(GameCardType gameCardType) {
         this.gameCardType = gameCardType;
     }
 

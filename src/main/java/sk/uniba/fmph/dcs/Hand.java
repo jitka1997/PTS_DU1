@@ -27,7 +27,7 @@ public class Hand {
 
         try {
             cards.addAll(deck.draw(numberOfCardsToDraw));
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
             return Optional.empty();
         }

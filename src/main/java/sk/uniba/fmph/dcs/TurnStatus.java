@@ -5,7 +5,7 @@ public class TurnStatus {
     private int buys;
     private int coins;
 
-    public TurnStatus(){
+    public TurnStatus() {
         actions = 0;
         buys = 0;
         coins = 0;
@@ -44,6 +44,7 @@ public class TurnStatus {
         result = prime * result + coins;
         return result;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
