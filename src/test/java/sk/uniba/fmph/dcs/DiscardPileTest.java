@@ -1,6 +1,8 @@
 package sk.uniba.fmph.dcs;
 
 import java.util.ArrayList;
+import java.util.Map;
+
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -13,10 +15,11 @@ class FakeCard implements CardInterface {
         this.cardType = cardType;
     }
     
-    public void evaluate(TurnStatus t) {
+    public Integer evaluate(TurnStatus t) {
+        return null;
     }
 
-    public GameCardType cardType() {
+    public GameCardType getGameCardType() {
     	return cardType;
     }
 }
@@ -28,7 +31,7 @@ public class DiscardPileTest  {
 
     private void assertTopIs(DiscardPile pile, String string) {
         assertTrue(pile.getTopCard().isPresent());
-        assertEquals(pile.getTopCard().get().cardType().getName(), string);
+        assertEquals(pile.getTopCard().get().getGameCardType().getName(), string);
     }
         
     private void assertTopIsNone(DiscardPile  pile) {

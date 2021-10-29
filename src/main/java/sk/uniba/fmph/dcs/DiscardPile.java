@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class DiscardPile {
-    List<CardInterface> cards;
+    private List<CardInterface> cards;
 
     public DiscardPile(List<CardInterface> cards) {
         this.cards = cards;
@@ -25,11 +25,11 @@ public class DiscardPile {
         return cards.size();
     }
         
-    public List<CardInterface> shuffle() {
+    public List<CardInterface> shuffleAndGetAll() {
         Collections.shuffle(cards);
-        List<CardInterface> cards_to_send = cards;        
+        List<CardInterface> cardsToSend = cards;
         cards = new ArrayList<>();
-        return cards_to_send;
+        return cardsToSend;
     }
 }
         
