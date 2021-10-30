@@ -2,7 +2,6 @@ package sk.uniba.fmph.dcs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Game {
     private String phase;

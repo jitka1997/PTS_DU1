@@ -49,7 +49,7 @@ public class HandTest {
     }
 
     @Test
-    public void returnPlayedCard() {
+    public void testReturnPlayedCard() {
         Optional<CardInterface> card = hand1.play(0, new TurnStatus());
         assertTrue(card.isPresent());
         assertEquals(GameCardType.GAME_CARD_TYPE_MARKET, card.get().getGameCardType());

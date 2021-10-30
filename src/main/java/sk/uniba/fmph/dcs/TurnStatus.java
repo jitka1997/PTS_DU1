@@ -11,6 +11,12 @@ public class TurnStatus {
         coins = 0;
     }
 
+    public TurnStatus(int actions, int buys, int coins) {
+        this.actions = actions;
+        this.buys = buys;
+        this.coins = coins;
+    }
+
     public int getActions() {
         return actions;
     }
