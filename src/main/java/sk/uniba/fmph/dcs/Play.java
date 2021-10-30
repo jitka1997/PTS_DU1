@@ -15,6 +15,10 @@ public class Play {
         cards.add(card);
     }
 
+    public int getNumberOfCardsInPlay() {
+        return cards.size();
+    }
+
     public List<CardInterface> throwAll() {
         List<CardInterface> result = cards;
         cards = new ArrayList<>();

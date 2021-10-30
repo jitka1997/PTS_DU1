@@ -8,12 +8,12 @@ public class Game {
     private final EndGameStrategy endGameStrategy;
 
     public Game(HashMap<GameCardType, BuyDeck> buyDecks, Play play,
-                DiscardPileInterface discardPile, Initial initial, EndGameStrategy endGameStrategy) {
+                DiscardPileInterface discardPile, InitialInterface initial, EndGameStrategy endGameStrategy) {
         phase = "play";
         this.endGameStrategy = endGameStrategy;
 
         //initialize instance of Turn
-        turn = new Turn(buyDecks, initial.getTurnStatus(), new Play(),
+        turn = new Turn(buyDecks, initial.getTurnStatus(), play,
                 new Deck(initial.getDeckCards(), discardPile), discardPile);
 
     }

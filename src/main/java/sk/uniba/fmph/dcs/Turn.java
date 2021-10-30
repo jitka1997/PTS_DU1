@@ -11,6 +11,18 @@ public class Turn {
     private final DeckInterface deck;
     private final DiscardPileInterface discardPile;
 
+    public Turn(HashMap<GameCardType, BuyDeck> buyDecks, TurnStatus turnStatus,
+                Play play, DeckInterface deck, DiscardPileInterface discardPile) {
+        this.buyDecks = buyDecks;
+        this.turnStatus = turnStatus;
+        this.play = play;
+        this.deck = deck;
+        this.discardPile = discardPile;
+
+        hand = new Hand(deck.draw(5), deck);
+        playAllCopperCards();
+    }
+
     private void playAllCopperCards() {
         for (int i = 0; i < hand.getSize(); i++) {
             try {
@@ -20,23 +32,9 @@ public class Turn {
                     play.putTo(card);
                 }
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         }
-    }
-
-    public Turn(HashMap<GameCardType, BuyDeck> buyDecks, TurnStatus turnStatus, Play play, DeckInterface deck, DiscardPileInterface discardPile) {
-        turnStatus.setBuys(1);
-        turnStatus.setActions(1);
-
-        this.buyDecks = buyDecks;
-        this.turnStatus = turnStatus;
-        this.play = play;
-        this.deck = deck;
-        this.discardPile = discardPile;
-
-        hand = new Hand(deck.draw(5), deck);
-        playAllCopperCards();
     }
 
     // checks if player has a Buy and enough coins and puts bought card into the discard pile

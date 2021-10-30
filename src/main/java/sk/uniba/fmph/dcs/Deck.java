@@ -24,6 +24,10 @@ public class Deck implements DeckInterface {
         if (count > cards.size()) {
             throw new IllegalArgumentException("Deck doesn't contain enough cards");
         }
+        for(int i = 0; i < count; i++){
+            cardsToDraw.add(cards.getFirst());
+            cards.removeFirst();
+        }
         return cardsToDraw;
     }
 }
