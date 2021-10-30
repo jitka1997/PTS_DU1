@@ -1,24 +1,20 @@
 package sk.uniba.fmph.dcs;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Game {
     private String phase;
     private final Turn turn;
-    private TurnStatus turnStatus;
-    private HashMap<GameCardType, BuyDeck> buyDecks;
-    private EndGameStrategy endGameStrategy;
+    private final EndGameStrategy endGameStrategy;
 
     public Game(HashMap<GameCardType, BuyDeck> buyDecks, Play play,
                 DiscardPileInterface discardPile, Initial initial, EndGameStrategy endGameStrategy) {
         phase = "play";
-        this.buyDecks = buyDecks;
         this.endGameStrategy = endGameStrategy;
 
         //initialize instance of Turn
-        turnStatus = initial.getTurnStatus();
-        turn = new Turn(buyDecks, turnStatus, new Play(), new Deck(initial.getDeckCards(), discardPile), discardPile);
+        turn = new Turn(buyDecks, initial.getTurnStatus(), new Play(),
+                new Deck(initial.getDeckCards(), discardPile), discardPile);
 
     }
 
