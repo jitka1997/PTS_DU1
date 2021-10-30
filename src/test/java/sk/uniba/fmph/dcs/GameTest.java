@@ -11,10 +11,6 @@ import static org.junit.Assert.*;
 
 public class GameTest {
     Game game1;
-    Game game2;
-
-    //Game(HashMap<GameCardType, BuyDeck> buyDecks, Play play,
-    //DiscardPileInterface discardPile, Initial initial, EndGameStrategy endGameStrategy)
 
     @Before
     public void setUp() {
