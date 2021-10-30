@@ -25,6 +25,10 @@ public class DiscardPile {
         return cards.size();
     }
 
+    public void putInto(CardInterface card){
+        cards.add(card);
+    }
+
     public List<CardInterface> shuffleAndGetAll() {
         Collections.shuffle(cards);
         List<CardInterface> cardsToSend = cards;

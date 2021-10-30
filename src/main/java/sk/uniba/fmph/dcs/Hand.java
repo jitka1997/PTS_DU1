@@ -1,10 +1,11 @@
 package sk.uniba.fmph.dcs;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class Hand {
-    private final List<CardInterface> cards;
+    private List<CardInterface> cards;
     private final DeckInterface deck;
 
     public Hand(List<CardInterface> cards, DeckInterface deck) {
@@ -43,5 +44,11 @@ public class Hand {
             throw new IllegalArgumentException("No such card on hand");
         }
         return cards.get(id).getGameCardType().isAction();
+    }
+
+    public List<CardInterface> throwAll(){
+        List<CardInterface> cardsToThrow = cards;
+        cards = new ArrayList<>();
+        return cardsToThrow;
     }
 }
