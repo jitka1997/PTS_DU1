@@ -11,17 +11,32 @@ public class Turn {
     private final DeckInterface deck;
     private final DiscardPile discardPile;
 
+    private void playAllCopperCards() {
+        for (int i = 0; i < hand.getSize(); i++) {
+            try {
+                CardInterface card = hand.getCard(i);
+                if (card.getGameCardType() == GameCardType.GAME_CARD_TYPE_COPPER) {
+                    hand.getCard(i).evaluate(turnStatus);
+                    play.putTo(card);
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
     public Turn(HashMap<GameCardType, BuyDeck> buyDecks, TurnStatus turnStatus, Play play, DeckInterface deck, DiscardPile discardPile) {
         turnStatus.setBuys(1);
         turnStatus.setActions(1);
-
-        hand = new Hand(deck.draw(5), deck);
 
         this.buyDecks = buyDecks;
         this.turnStatus = turnStatus;
         this.play = play;
         this.deck = deck;
         this.discardPile = discardPile;
+
+        hand = new Hand(deck.draw(5), deck);
+        playAllCopperCards();
     }
 
     // checks if player has a Buy and enough coins and puts bought card into the discard pile
@@ -54,5 +69,6 @@ public class Turn {
             discardPile.putInto(card);
         }
         hand = new Hand(deck.draw(5), deck);
+        playAllCopperCards();
     }
 }

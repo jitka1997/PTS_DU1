@@ -46,7 +46,16 @@ public class Hand {
         return cards.get(id).getGameCardType().isAction();
     }
 
-    public List<CardInterface> throwAll(){
+    public CardInterface getCard(int id) {
+        if (id < 0 || id > cards.size() - 1) throw new IllegalArgumentException("No such card on Hand");
+        return cards.get(id);
+    }
+
+    public int getSize() {
+        return cards.size();
+    }
+
+    public List<CardInterface> throwAll() {
         List<CardInterface> cardsToThrow = cards;
         cards = new ArrayList<>();
         return cardsToThrow;

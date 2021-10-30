@@ -14,11 +14,13 @@ public class TurnTest {
     Turn turn1;
     Turn turn2;
     Turn turn3;
+    Turn turn4;
     HashMap<GameCardType, BuyDeck> emptyBuyDecks;
     HashMap<GameCardType, BuyDeck> buyDecks;
     TurnStatus oneBuyTurnStatus;
     TurnStatus buyOneOfEachTurnStatus;
     TurnStatus onePlayTurnStatus;
+    TurnStatus basic;
     Play play3;
 
     @Before
@@ -34,6 +36,7 @@ public class TurnTest {
         oneBuyTurnStatus = new TurnStatus();
         buyOneOfEachTurnStatus = new TurnStatus();
         onePlayTurnStatus = new TurnStatus();
+        basic = new TurnStatus();
 
         turn1 = new Turn(
                 emptyBuyDecks,
@@ -73,6 +76,20 @@ public class TurnTest {
         );
         onePlayTurnStatus.setBuys(0);
         onePlayTurnStatus.setActions(1);
+
+        turn4 = new Turn(
+                buyDecks,
+                basic,
+                new Play(),
+                new FakeDeck(new ArrayList<>() {{
+                    add(new GameCard(GameCardType.GAME_CARD_TYPE_COPPER));
+                    add(new GameCard(GameCardType.GAME_CARD_TYPE_MARKET));
+                    add(new GameCard(GameCardType.GAME_CARD_TYPE_COPPER));
+                    add(new GameCard(GameCardType.GAME_CARD_TYPE_MARKET));
+                    add(new GameCard(GameCardType.GAME_CARD_TYPE_MARKET));
+                }}),
+                new DiscardPile(new ArrayList<>())
+        );
     }
 
     @Test
@@ -95,5 +112,13 @@ public class TurnTest {
         turn3.playCard(0);
         List<CardInterface> playedCards = play3.throwAll();
         assertEquals(1, playedCards.size());
+    }
+
+    // copper cards should be already played, so the turnStatus must contain 2 coins
+    // and no Actions should be used
+    @Test
+    public void testPlayAllCopperCards() {
+        assertEquals(2, basic.getCoins());
+        assertEquals(1, basic.getActions());
     }
 }
