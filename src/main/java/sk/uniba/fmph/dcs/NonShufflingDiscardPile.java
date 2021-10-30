@@ -1,16 +1,11 @@
 package sk.uniba.fmph.dcs;
 
-import java.util.Optional;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
-public class DiscardPile implements DiscardPileInterface{
+public class NonShufflingDiscardPile implements DiscardPileInterface {
     private List<CardInterface> cards;
-
-    public DiscardPile(List<CardInterface> cards) {
-        this.cards = cards;
-    }
 
     @Override
     public Optional<CardInterface> getTopCard() {
@@ -29,17 +24,14 @@ public class DiscardPile implements DiscardPileInterface{
     }
 
     @Override
-    public void putInto(CardInterface card){
+    public void putInto(CardInterface card) {
         cards.add(card);
     }
 
     @Override
     public List<CardInterface> shuffleAndGetAll() {
-        Collections.shuffle(cards);
         List<CardInterface> cardsToSend = cards;
         cards = new ArrayList<>();
         return cardsToSend;
     }
 }
-        
-        

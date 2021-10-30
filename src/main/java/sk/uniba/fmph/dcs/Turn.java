@@ -9,7 +9,7 @@ public class Turn {
     private final Play play;
     private Hand hand;
     private final DeckInterface deck;
-    private final DiscardPile discardPile;
+    private final DiscardPileInterface discardPile;
 
     private void playAllCopperCards() {
         for (int i = 0; i < hand.getSize(); i++) {
@@ -25,7 +25,7 @@ public class Turn {
         }
     }
 
-    public Turn(HashMap<GameCardType, BuyDeck> buyDecks, TurnStatus turnStatus, Play play, DeckInterface deck, DiscardPile discardPile) {
+    public Turn(HashMap<GameCardType, BuyDeck> buyDecks, TurnStatus turnStatus, Play play, DeckInterface deck, DiscardPileInterface discardPile) {
         turnStatus.setBuys(1);
         turnStatus.setActions(1);
 

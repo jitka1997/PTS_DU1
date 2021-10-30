@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Deck implements DeckInterface {
     private LinkedList<CardInterface> cards;
-    private final DiscardPile discardPile;
+    private final DiscardPileInterface discardPile;
 
-    public Deck(List<CardInterface> cards, DiscardPile discardPile) {
+    public Deck(List<CardInterface> cards, DiscardPileInterface discardPile) {
         this.cards = new LinkedList<>(cards);
         this.discardPile = discardPile;
     }

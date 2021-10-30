@@ -21,7 +21,7 @@ public class Game {
             put(GameCardType.GAME_CARD_TYPE_MARKET, new BuyDeckMarket(initial.getMarketDeck()));
         }};
         turnStatus = new TurnStatus();
-        DiscardPile discardPile = new DiscardPile(initial.getDeckCards());
+        DiscardPileInterface discardPile = new DiscardPile(initial.getDeckCards());
         DeckInterface deck = new Deck(new ArrayList<>(), discardPile);
         turn = new Turn(buyDecks, turnStatus, new Play(), deck, discardPile);
     }
