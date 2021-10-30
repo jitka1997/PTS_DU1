@@ -7,6 +7,10 @@ import java.util.Optional;
 public class NonShufflingDiscardPile implements DiscardPileInterface {
     private List<CardInterface> cards;
 
+    public NonShufflingDiscardPile(List<CardInterface> cards) {
+        this.cards = cards;
+    }
+
     @Override
     public Optional<CardInterface> getTopCard() {
         if (cards.isEmpty()) return Optional.empty();
