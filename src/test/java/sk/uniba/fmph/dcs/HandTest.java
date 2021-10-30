@@ -15,15 +15,6 @@ public class HandTest {
     private Hand hand1;
     private DeckInterface deck1;
 
-    private void assertTopIs(DiscardPile pile, String string) {
-        assertTrue(pile.getTopCard().isPresent());
-        assertEquals(pile.getTopCard().get().getGameCardType().getName(), string);
-    }
-
-    private void assertTopIsNone(DiscardPile pile) {
-        assertTrue(pile.getTopCard().isEmpty());
-    }
-
     @Before
     public void setUp() {
         deck1 = new FakeDeck(new ArrayList<>());
@@ -53,5 +44,18 @@ public class HandTest {
         Optional<CardInterface> card = hand1.play(0, new TurnStatus());
         assertTrue(card.isPresent());
         assertEquals(GameCardType.GAME_CARD_TYPE_MARKET, card.get().getGameCardType());
+    }
+
+    @Test
+    public void testGetSize(){
+        assertEquals(2, hand1.getSize());
+    }
+
+    @Test
+    public void testSizeAfterPlayCard(){
+        TurnStatus turnStatus = new TurnStatus();
+        // market -> +1 card
+        Optional<CardInterface> card = hand1.play(0, turnStatus);
+        assertEquals(2, hand1.getSize());
     }
 }
