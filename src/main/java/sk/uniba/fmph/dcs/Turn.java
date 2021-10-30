@@ -61,13 +61,17 @@ public class Turn {
     }
 
     // throw cards from play and hand into the discard pile
-    public void newTurn() {
+    public void endTurn() {
         for (CardInterface card : hand.throwAll()) {
             discardPile.putInto(card);
         }
         for (CardInterface card : play.throwAll()) {
             discardPile.putInto(card);
         }
+    }
+
+    // starts new turn, player draws 5 cards
+    public void newTurn(){
         hand = new Hand(deck.draw(5), deck);
         playAllCopperCards();
     }
