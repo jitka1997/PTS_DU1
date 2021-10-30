@@ -47,15 +47,14 @@ public class HandTest {
     }
 
     @Test
-    public void testGetSize(){
+    public void testGetSize() {
         assertEquals(2, hand1.getSize());
     }
 
     @Test
-    public void testSizeAfterPlayCard(){
+    public void testSizeAfterPlayCard() {
         TurnStatus turnStatus = new TurnStatus();
-        // market -> +1 card
         Optional<CardInterface> card = hand1.play(0, turnStatus);
-        assertEquals(2, hand1.getSize());
+        assertEquals(1, hand1.getSize());
     }
 }

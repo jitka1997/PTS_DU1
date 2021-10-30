@@ -119,6 +119,6 @@ public class TurnTest {
     @Test
     public void testPlayAllCopperCards() {
         assertEquals(2, basic.getCoins());
-        assertEquals(1, basic.getActions());
+        assertEquals(0, basic.getActions());
     }
 }

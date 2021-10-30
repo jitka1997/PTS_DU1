@@ -19,7 +19,6 @@ public class Hand {
         try {
             if (isActionCard(id)) {
                 playedCard = cards.get(id);
-                System.out.println("som pred evalueate");
                 numberOfCardsToDraw = playedCard.evaluate(ts);
             }
         } catch (Exception e) {
