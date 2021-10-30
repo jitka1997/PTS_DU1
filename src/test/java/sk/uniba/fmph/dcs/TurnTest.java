@@ -9,7 +9,6 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-// integration test on classed that are used by Turn
 public class TurnTest {
     Turn turn1;
     Turn turn2;
@@ -92,6 +91,7 @@ public class TurnTest {
         );
     }
 
+    // integration tests on classes that are used by Turn
     @Test
     public void testBuyFromEmptyBuyDeck() {
         assertFalse(turn1.buyCard(GameCardType.GAME_CARD_TYPE_COPPER));

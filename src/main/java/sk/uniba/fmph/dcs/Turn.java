@@ -71,7 +71,7 @@ public class Turn {
     }
 
     // starts new turn, player draws 5 cards
-    public void newTurn(){
+    public void newTurn() {
         hand = new Hand(deck.draw(5), deck);
         playAllCopperCards();
     }
