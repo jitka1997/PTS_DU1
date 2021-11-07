@@ -22,4 +22,8 @@ public abstract class BuyDeck {
         cardCount--;
         return Optional.of(new GameCard(gameCardType));
     }
+
+    public GameCardType getGameCardType() {
+        return gameCardType;
+    }
 }

@@ -15,7 +15,7 @@ public class GameTest {
     @Before
     public void setUp() {
         HashMap<GameCardType, BuyDeck> buyDecks = new HashMap<>();
-        game1 = new Game(buyDecks, new Play(), new DiscardPile(new ArrayList<>()), new Initial(), new AtLeast3EmptyDecks(buyDecks));
+        game1 = new Game(buyDecks, new Play(), new DiscardPile(new ArrayList<>()), new Initial(), new AtLeastNEmptyDecks(buyDecks, 1));
     }
 
     @Test

@@ -23,7 +23,7 @@ public class IntegrationTest {
         buyDecks = initial.getBuyDecks();
         play = new Play();
         pile = new NonShufflingDiscardPile(new ArrayList<>());
-        endGameStrategy = new AtLeast3EmptyDecks(buyDecks);
+        endGameStrategy = new AtLeastNEmptyDecks(buyDecks, 1);
         game1 = new Game(buyDecks, play, pile, initial, endGameStrategy);
     }
 
