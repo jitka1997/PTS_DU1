@@ -1,7 +1,7 @@
 package sk.uniba.fmph.dcs;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface InitialInterface {
     public TurnStatus getTurnStatus();
@@ -22,5 +22,5 @@ public interface InitialInterface {
 
     public int getLaboratoryDeck();
 
-    public HashMap<GameCardType, BuyDeck> getBuyDecks();
+    public Map<GameCardType, BuyDeck> getBuyDecks();
 }

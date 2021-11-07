@@ -1,10 +1,10 @@
 package sk.uniba.fmph.dcs;
 
-import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 public class Turn {
-    private final HashMap<GameCardType, BuyDeck> buyDecks;
+    private final Map<GameCardType, BuyDeck> buyDecks;
     private final TurnStatus turnStatus;
     private final Play play;
     private Hand hand;
@@ -12,7 +12,7 @@ public class Turn {
     private final DiscardPileInterface discardPile;
     private final TurnStatus defaultTurnStatus;
 
-    public Turn(HashMap<GameCardType, BuyDeck> buyDecks, TurnStatus turnStatus,
+    public Turn(Map<GameCardType, BuyDeck> buyDecks, TurnStatus turnStatus,
                 Play play, DeckInterface deck, DiscardPileInterface discardPile) {
         this.buyDecks = buyDecks;
         this.turnStatus = turnStatus;

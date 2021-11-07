@@ -3,9 +3,10 @@ package sk.uniba.fmph.dcs;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // initial constants of the game
-public class Initial implements InitialInterface{
+public class Initial implements InitialInterface {
     private final int copperDeck;
     private final int marketDeck;
     private final int estateDeck;
@@ -14,7 +15,7 @@ public class Initial implements InitialInterface{
     private final int festivalDeck;
     private final int laboratoryDeck;
     private final List<CardInterface> deckCards;
-    private final HashMap<GameCardType, BuyDeck> buyDecks;
+    private final Map<GameCardType, BuyDeck> buyDecks;
 
     private final TurnStatus turnStatus;
 
@@ -86,7 +87,7 @@ public class Initial implements InitialInterface{
         return laboratoryDeck;
     }
 
-    public HashMap<GameCardType, BuyDeck> getBuyDecks() {
+    public Map<GameCardType, BuyDeck> getBuyDecks() {
         return buyDecks;
     }
 }

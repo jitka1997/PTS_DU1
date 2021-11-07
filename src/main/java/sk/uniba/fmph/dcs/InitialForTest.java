@@ -3,6 +3,7 @@ package sk.uniba.fmph.dcs;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class InitialForTest implements InitialInterface {
     TurnStatus turnStatus;
@@ -10,7 +11,7 @@ public class InitialForTest implements InitialInterface {
     private final int marketDeck;
     private final int estateDeck;
     private final List<CardInterface> deckCards;
-    private final HashMap<GameCardType, BuyDeck> buyDecks;
+    private final Map<GameCardType, BuyDeck> buyDecks;
 
     public InitialForTest() {
         copperDeck = 2;
@@ -79,7 +80,7 @@ public class InitialForTest implements InitialInterface {
     }
 
     @Override
-    public HashMap<GameCardType, BuyDeck> getBuyDecks() {
+    public Map<GameCardType, BuyDeck> getBuyDecks() {
         return buyDecks;
     }
 }

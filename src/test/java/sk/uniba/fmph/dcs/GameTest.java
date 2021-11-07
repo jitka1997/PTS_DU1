@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -14,7 +15,7 @@ public class GameTest {
 
     @Before
     public void setUp() {
-        HashMap<GameCardType, BuyDeck> buyDecks = new HashMap<>();
+        Map<GameCardType, BuyDeck> buyDecks = new HashMap<>();
         InitialInterface initial = new InitialForTest();
         DeckInterface deck = new FakeDeck(initial.getDeckCards());
         game1 = new Game(new Turn(buyDecks, initial.getTurnStatus(), new Play(), deck, new DiscardPile(new ArrayList<>())), new AtLeastNEmptyDecks(buyDecks, 3));

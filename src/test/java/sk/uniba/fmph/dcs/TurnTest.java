@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -14,8 +15,8 @@ public class TurnTest {
     Turn turn2;
     Turn turn3;
     Turn turn4;
-    HashMap<GameCardType, BuyDeck> emptyBuyDecks;
-    HashMap<GameCardType, BuyDeck> buyDecks;
+    Map<GameCardType, BuyDeck> emptyBuyDecks;
+    Map<GameCardType, BuyDeck> buyDecks;
     TurnStatus oneBuyTurnStatus;
     TurnStatus buyOneOfEachTurnStatus;
     TurnStatus onePlayTurnStatus;

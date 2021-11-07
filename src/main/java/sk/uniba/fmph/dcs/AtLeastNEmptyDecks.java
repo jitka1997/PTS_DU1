@@ -3,18 +3,18 @@ package sk.uniba.fmph.dcs;
 import java.util.*;
 
 public class AtLeastNEmptyDecks implements EndGameStrategy {
-    private final HashMap<GameCardType, BuyDeck> buyDecks;
+    private final Map<GameCardType, BuyDeck> buyDecks;
     private final int n;
     private final Set<GameCardType> typesOfBuyDecksToCheck;
 
-    public AtLeastNEmptyDecks(HashMap<GameCardType, BuyDeck> allBuyDecks, int n) {
+    public AtLeastNEmptyDecks(Map<GameCardType, BuyDeck> allBuyDecks, int n) {
         this.buyDecks = allBuyDecks;
         this.n = n;
         typesOfBuyDecksToCheck = new HashSet<>();
         typesOfBuyDecksToCheck.addAll(allBuyDecks.keySet());
     }
 
-    public AtLeastNEmptyDecks(HashMap<GameCardType, BuyDeck> buyDecks, int n, GameCardType... typesOfBuyDecksToCheck) {
+    public AtLeastNEmptyDecks(Map<GameCardType, BuyDeck> buyDecks, int n, GameCardType... typesOfBuyDecksToCheck) {
         this.buyDecks = buyDecks;
         this.n = n;
         this.typesOfBuyDecksToCheck = Set.of(typesOfBuyDecksToCheck);

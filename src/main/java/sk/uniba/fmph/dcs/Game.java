@@ -1,6 +1,5 @@
 package sk.uniba.fmph.dcs;
 
-import java.util.HashMap;
 
 public class Game {
     private String phase;
@@ -11,7 +10,6 @@ public class Game {
         phase = "play";
         this.endGameStrategy = endGameStrategy;
 
-        //initialize instance of Turn
         this.turn = turn;
 
     }
