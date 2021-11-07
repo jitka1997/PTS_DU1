@@ -27,7 +27,7 @@ public class Turn {
         for (int i = 0; i < hand.getSize(); i++) {
             try {
                 CardInterface card = hand.getCard(i);
-                if (card.getGameCardType() == GameCardType.GAME_CARD_TYPE_COPPER) {
+                if (card.getGameCardType().equals(GameCardType.GAME_CARD_TYPE_COPPER)) {
                     hand.getCard(i).evaluate(turnStatus);
                     play.putTo(card);
                 }

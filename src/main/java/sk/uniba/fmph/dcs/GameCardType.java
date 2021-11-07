@@ -1,5 +1,7 @@
 package sk.uniba.fmph.dcs;
 
+import java.util.Objects;
+
 public class GameCardType {
     private final int plusActions;
     private final int plusBuys;
@@ -57,6 +59,19 @@ public class GameCardType {
 
     public String getDescription() {
         return description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameCardType that = (GameCardType) o;
+        return plusActions == that.plusActions && plusBuys == that.plusBuys && plusCards == that.plusCards && plusCoins == that.plusCoins && points == that.points && cost == that.cost && isAction == that.isAction && name.equals(that.name) && description.equals(that.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(plusActions, plusBuys, plusCards, plusCoins, points, cost, isAction, name, description);
     }
 
     public static final GameCardType GAME_CARD_TYPE_MARKET = new GameCardType(1, 1, 1, 1, 0, 5, true, "Market", "+1 Action; +1 Buy; +1 Card; +1 Coin");
