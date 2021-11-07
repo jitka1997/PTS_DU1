@@ -3,7 +3,7 @@ package sk.uniba.fmph.dcs;
 import java.util.Optional;
 
 public abstract class BuyDeck {
-    private final int cardCount;
+    private int cardCount;
     private final GameCardType gameCardType;
 
     public BuyDeck(int cardCount, GameCardType gameCardType) {
@@ -19,6 +19,7 @@ public abstract class BuyDeck {
         if (cardCount <= 0) {
             return Optional.empty();
         }
+        cardCount--;
         return Optional.of(new GameCard(gameCardType));
     }
 }
