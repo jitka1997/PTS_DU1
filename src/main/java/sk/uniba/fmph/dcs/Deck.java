@@ -5,12 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Deck implements DeckInterface {
-    private LinkedList<CardInterface> cards;
+    private final LinkedList<CardInterface> cards;
     private final DiscardPileInterface discardPile;
+    private boolean isGameOver;
 
     public Deck(List<CardInterface> cards, DiscardPileInterface discardPile) {
         this.cards = new LinkedList<>(cards);
         this.discardPile = discardPile;
+        isGameOver = false;
     }
 
     @Override
@@ -22,6 +24,7 @@ public class Deck implements DeckInterface {
             }
         }
         if (count > cards.size()) {
+            isGameOver = true;
             throw new IllegalArgumentException("Deck doesn't contain enough cards");
         }
         for(int i = 0; i < count; i++){
@@ -29,5 +32,9 @@ public class Deck implements DeckInterface {
             cards.removeFirst();
         }
         return cardsToDraw;
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
     }
 }
