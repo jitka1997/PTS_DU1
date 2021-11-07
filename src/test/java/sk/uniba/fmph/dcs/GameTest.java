@@ -15,7 +15,9 @@ public class GameTest {
     @Before
     public void setUp() {
         HashMap<GameCardType, BuyDeck> buyDecks = new HashMap<>();
-        game1 = new Game(buyDecks, new Play(), new DiscardPile(new ArrayList<>()), new Initial(), new AtLeastNEmptyDecks(buyDecks, 1));
+        InitialInterface initial = new InitialForTest();
+        DeckInterface deck = new FakeDeck(initial.getDeckCards());
+        game1 = new Game(new Turn(buyDecks, initial.getTurnStatus(), new Play(), deck, new DiscardPile(new ArrayList<>())), new AtLeastNEmptyDecks(buyDecks, 3));
     }
 
     @Test

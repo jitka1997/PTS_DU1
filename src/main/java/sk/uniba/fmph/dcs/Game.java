@@ -7,14 +7,12 @@ public class Game {
     private final Turn turn;
     private final EndGameStrategy endGameStrategy;
 
-    public Game(HashMap<GameCardType, BuyDeck> buyDecks, Play play,
-                DiscardPileInterface discardPile, InitialInterface initial, EndGameStrategy endGameStrategy) {
+    public Game(Turn turn, EndGameStrategy endGameStrategy) {
         phase = "play";
         this.endGameStrategy = endGameStrategy;
 
         //initialize instance of Turn
-        turn = new Turn(buyDecks, initial.getTurnStatus(), play,
-                new Deck(initial.getDeckCards(), discardPile), discardPile);
+        this.turn = turn;
 
     }
 

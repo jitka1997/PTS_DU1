@@ -23,8 +23,9 @@ public class IntegrationTest {
         buyDecks = initial.getBuyDecks();
         play = new Play();
         pile = new NonShufflingDiscardPile(new ArrayList<>());
-        endGameStrategy = new AtLeastNEmptyDecks(buyDecks, 1);
-        game1 = new Game(buyDecks, play, pile, initial, endGameStrategy);
+        endGameStrategy = new AtLeastNEmptyDecks(buyDecks, 3);
+        Turn turn = new Turn(buyDecks, initial.getTurnStatus(), play, new Deck(initial.getDeckCards(), pile), pile);
+        game1 = new Game(turn, endGameStrategy);
     }
 
     // player has 1 market, 1 estate and 3 coppers on hand

@@ -10,6 +10,7 @@ public class Turn {
     private Hand hand;
     private final DeckInterface deck;
     private final DiscardPileInterface discardPile;
+    private final TurnStatus defaultTurnStatus;
 
     public Turn(HashMap<GameCardType, BuyDeck> buyDecks, TurnStatus turnStatus,
                 Play play, DeckInterface deck, DiscardPileInterface discardPile) {
@@ -18,6 +19,7 @@ public class Turn {
         this.play = play;
         this.deck = deck;
         this.discardPile = discardPile;
+        this.defaultTurnStatus = turnStatus;
 
         hand = new Hand(deck.draw(5), deck);
         playAllCopperCards();
@@ -72,6 +74,14 @@ public class Turn {
     // starts new turn, player draws 5 cards
     public void newTurn() {
         hand = new Hand(deck.draw(5), deck);
+        resetTurnStatus();
         playAllCopperCards();
+    }
+
+    // resets TurnStatus
+    private void resetTurnStatus() {
+        turnStatus.setActions(defaultTurnStatus.getActions());
+        turnStatus.setBuys(defaultTurnStatus.getBuys());
+        turnStatus.setCoins(defaultTurnStatus.getCoins());
     }
 }
