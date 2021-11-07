@@ -17,10 +17,8 @@ public class Hand {
         int numberOfCardsToDraw = 0;
         CardInterface playedCard = null;
         try {
-            if (isActionCard(id)) {
-                playedCard = cards.get(id);
-                numberOfCardsToDraw = playedCard.evaluate(ts);
-            }
+            playedCard = cards.get(id);
+            numberOfCardsToDraw = playedCard.evaluate(ts);
         } catch (Exception e) {
             System.err.println(e.getMessage());
             return Optional.empty();

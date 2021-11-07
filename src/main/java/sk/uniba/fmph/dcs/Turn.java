@@ -23,6 +23,7 @@ public class Turn {
         playAllCopperCards();
     }
 
+    // considering you have to play all treasure cards in play phase
     private void playAllCopperCards() {
         for (int i = 0; i < hand.getSize(); i++) {
             try {
@@ -50,10 +51,10 @@ public class Turn {
 
     // checks if player has an Action and puts card in play
     public boolean playCard(int idOnHand) {
-        if (turnStatus.getActions() <= 0) return false;
+        if (turnStatus.getActions() <= 0 && hand.isActionCard(idOnHand)) return false;
         Optional<CardInterface> playedCard = hand.play(idOnHand, turnStatus);
         if (playedCard.isEmpty()) return false;
-        turnStatus.setActions(turnStatus.getActions() - 1);
+        if (hand.isActionCard(idOnHand)) turnStatus.setActions(turnStatus.getActions() - 1);
         play.putTo(playedCard.get());
         return true;
     }
